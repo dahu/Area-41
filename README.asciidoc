@@ -1,4 +1,4 @@
 Area 41
 -------
 
-__Plugin Skeleton for Vim__
+__Vim Plugin Skeletons__
