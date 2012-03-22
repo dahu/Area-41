@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim indent plugin for filetype name.
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	indent/filetypename.vim
-" Website:	https://github.com/user/pluginname
+" Location:	indent/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")

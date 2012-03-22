@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim filetype plugin for filetype name.
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	ftplugin/filetypename.vim
-" Website:	https://github.com/user/pluginname
+" Location:	ftplugin/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -27,8 +27,8 @@ if v:version < 700 || &compatible
 endif
 
 " Local Mappings: {{{1
-if !hasmapto('<Plug>PluginName')
-  noremap <unique><silent><buffer> <Leader>v <Plug>PluginName
+if !hasmapto('<Plug>%FILE%')
+  nmap <unique><silent><buffer> <Leader>v <Plug>%FILE%
 endif
 
 " Local Commands: {{{1
@@ -65,7 +65,7 @@ function! MyPublicFunction()
 endfunction
 
 " Mappings:
-nnoremap <Plug>PluginName :call <SID>MyScriptLocalFunction()<CR>
+nnoremap <Plug>%FILE% :call <SID>MyScriptLocalFunction()<CR>
 
 " Teardown:{{{1
 "reset &cpo back to users setting

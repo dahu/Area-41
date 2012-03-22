@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim library for short description
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	autoload/pluginname.vim
-" Website:	https://github.com/user/pluginname
+" Location:	autoload/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -22,14 +22,14 @@ set cpo&vim
 
 " load guard
 " uncomment after plugin development
-"if exists("g:loaded_pluginlibname")
+"if exists("g:loaded_lib_%FILE%")
 "      \ || v:version < 700
 "      \ || v:version == 703 && !has('patch338')
 "      \ || &compatible
 "  let &cpo = s:save_cpo
 "  finish
 "endif
-"let g:loaded_pluginlibname = 1
+"let g:loaded_lib_%FILE% = 1
 
 " Private Functions: {{{1
 function! s:MyScriptLocalFunction()
@@ -37,7 +37,7 @@ function! s:MyScriptLocalFunction()
 endfunction
 
 " Library Interface: {{{1
-function! pluginname#greetings()
+function! %FILE%#greetings()
   echo "Hello world!"
 endfunction
 

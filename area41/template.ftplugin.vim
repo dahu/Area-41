@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim filetype plugin for filetype name.
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	ftplugin/filetypename.vim
-" Website:	https://github.com/user/pluginname
+" Location:	ftplugin/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " Only do this when not done yet for this buffer
 if exists("b:did_ftplugin")
@@ -41,7 +41,7 @@ setlocal fo-=t fo+=croql
 
 " Set completion with CTRL-X CTRL-O to autoloaded function.
 "if exists('&ofu')
-"  setlocal ofu=%FileType%complete#Complete
+"  setlocal ofu=%FILE%complete#Complete
 "endif
 
 " Set 'comments'.

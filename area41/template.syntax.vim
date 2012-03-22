@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim syntax plugin for filetype name.
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	syntax/filetypename.vim
-" Website:	https://github.com/user/pluginname
+" Location:	syntax/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help. This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -30,7 +30,7 @@ syn keyword	FileTypeNameTodo	TODO FIXME XXX
 " Only used when an item doesn't have highlighting yet
 hi def link FileTypeNameTodo	Todo
 
-let b:current_syntax = "FileTypeName"
+let b:current_syntax = "%FILE%"
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

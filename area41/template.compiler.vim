@@ -1,22 +1,22 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim compiler plugin for compiler name.
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Compiler:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	compiler/compilername.vim
-" Website:	https://github.com/user/pluginname
+" Location:	compiler/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FFILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists("current_compiler")
   finish
 endif
-let current_compiler = "compilername"
+let current_compiler = "%FILE%"
 
 " Allow use of line continuation.
 let s:save_cpo = &cpo

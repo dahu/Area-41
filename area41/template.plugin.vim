@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim global plugin for short description
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	plugin/pluginname.vim
-" Website:	https://github.com/user/pluginname
+" Location:	plugin/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -22,14 +22,14 @@ set cpo&vim
 
 " load guard
 " uncomment after plugin development
-"if exists("g:loaded_pluginname")
+"if exists("g:loaded_%FILE%")
 "      \ || v:version < 700
 "      \ || v:version == 703 && !has('patch338')
 "      \ || &compatible
 "  let &cpo = s:save_cpo
 "  finish
 "endif
-"let g:loaded_pluginname = 1
+"let g:loaded_%FILE% = 1
 
 " Options: {{{1
 if !exists('g:somevar')
@@ -47,15 +47,15 @@ function! MyPublicFunction()
 endfunction
 
 " Maps: {{{1
-nnoremap <Plug>PublicPlugName1 :call <SID>MyScriptLocalFunction()<CR>
-nnoremap <Plug>PublicPlugName2 :call MyPublicFunction()<CR>
+nnoremap <Plug>%FILE%1 :call <SID>MyScriptLocalFunction()<CR>
+nnoremap <Plug>%FILE%2 :call MyPublicFunction()<CR>
 
 if !hasmapto('<Plug>PublicPlugName1')
-  nmap <unique><silent> <leader>p1 <Plug>PublicPlugName1
+  nmap <unique><silent> <leader>p1 <Plug>%FILE%1
 endif
 
 if !hasmapto('<Plug>PublicPlugName2')
-  nmap <unique><silent> <leader>p2 <Plug>PublicPlugName2
+  nmap <unique><silent> <leader>p2 <Plug>%FILE%2
 endif
 
 " Commands: {{{1

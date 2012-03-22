@@ -1,19 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim color scheme
-" Maintainer:	Name <email>
+" Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
-" Last Change:	date
+" Last Change:	%DATE%
 " License:	Vim License (see :help license)
-" Location:	color/pluginname.vim
-" Website:	https://github.com/user/pluginname
+" Location:	color/%FFILE%
+" Website:	https://github.com/%HERE%/%FILE%
 "
-" See pluginname.txt for help.  This can be accessed by doing:
+" See %FILE%.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
-" :help pluginname
+" :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:Pluginname_version = '0.1'
+let s:%FILE%_version = '0.1'
 
 " First remove all existing highlighting.
 hi clear
@@ -21,7 +21,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "pluginname"
+let colors_name = "%FILE%"
 
 hi Normal ctermbg=DarkGrey ctermfg=White guifg=White guibg=grey20
 
