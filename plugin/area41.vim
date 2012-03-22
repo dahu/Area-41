@@ -68,6 +68,15 @@ function! s:get_available()
   return filter(templates, 'count(templates, v:val) == 1')
 endfunction
 
+" Return a valid extension depending on the template.
+function! s:get_extension(template)
+  if index(['doc', 'help', 'documentation'], a:template) > 0
+    return '.txt'
+  else
+    return '.vim'
+  endif
+endfunction
+
 " Args:
 " - bang: Forces editing an existing file/buffer.
 " - kind: Kind of plugin to load.
@@ -84,7 +93,7 @@ function! s:handle_args(bang, kind, ...)
     return 0
   endif
   if a:0 && !empty(a:1)
-    let file = a:1 . (a:1 =~ '\.vim$' ? '' : '.vim')
+    let file = a:1 . (a:1 =~ '\.\S\+$' ? '' : s:get_extension(a:kind))
     if !a:bang
           \ && ( !empty(glob(file))
           \ || !empty(filter(range(1, bufnr('$')),
