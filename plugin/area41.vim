@@ -45,44 +45,63 @@ endif
 let s:crypt = expand('<sfile>:p:h:h') . '/area41'
 
 " Private Functions: {{{1
+
+" Check if the given template is available.
 function! s:is_available(template)
-  let [crypt, user_crypt] = s:get_crypts()
-  let templates = map(glob(crypt . '/*', 0, 1), 'fnamemodify(v:val, ":t:r:e")')
+  return len(filter(s:get_available(), 'v:val ==# a:template')) > 0
+endfunction
+
+" Get user dir's path if any.
+function! s:get_user_crypt()
+  return glob('$HOME/.vim/area41')
+endfunction
+
+" Get list of available templates.
+function! s:get_available()
+  let user_crypt = s:get_user_crypt()
+  let templates = map(glob(s:crypt . '/*', 0, 1),
+        \ 'fnamemodify(v:val, ":t:r:e")')
   if !empty(user_crypt)
-    let templates += map(glob(user_crypt . '/*', 0, 1), 'fnamemodify(v:val, ":t:r:e")')
+    let templates += map(glob(user_crypt . '/*', 0, 1),
+          \ 'fnamemodify(v:val, ":t:r:e")')
   endif
-  return len(filter(templates, 'v:val ==# a:template')) > 0
+  return filter(templates, 'count(templates, v:val) == 1')
 endfunction
 
-function! s:get_crypts()
-  return [
-        \ s:crypt,
-        \ glob('$HOME/.vim/area41')
-        \]
-endfunction
-
+" Args:
+" - bang: Forces editing an existing file/buffer.
+" - kind: Kind of plugin to load.
+" - a:1 : If provided the template will be loaded there. Otherwise load the
+"   template on the current buffer.
 function! s:handle_args(bang, kind, ...)
   if !exists(':Template')
-    echoe 'The Template plugin is not instealled!'
+    echoe 'Area41: The Template plugin is not installed.'
     return 0
   endif
   if !s:is_available(a:kind)
     " TODO: An error would be nice here.
-    echoe 'No such template!'
+    echoe 'Area41: No such template.'
     return 0
   endif
   if a:0 && !empty(a:1)
     let file = a:1 . (a:1 =~ '\.vim$' ? '' : '.vim')
-    if a:bang || !empty(glob(file))
+    if !a:bang
+          \ && ( !empty(glob(file))
+          \ || !empty(filter(range(1, bufnr('$')),
+          \       'bufname(v:val) =~ file.''$''')))
       " TODO: Error here.
-      echoe 'File exists!'
+      echoe 'Area41: File exists, add "!" to override.'
       return 0
     endif
     exec 'edit ' . file
   endif
-  call s:load_template(a:kind)
+  if !expand('%') == file
+    return 0
+  endif
+  return s:load_template(a:kind)
 endfunction
 
+" Read the given template into the current buffer.
 function! s:load_template(template)
   let linescount = line('$')
   let done = 0
