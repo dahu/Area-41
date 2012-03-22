@@ -123,8 +123,23 @@ function! s:load_template(template)
   return done
 endfunction
 
+function! s:command_complete(ArgLead, CmdLine, CursorPos)
+  if a:CmdLine[: a:CursorPos ] =~# '\m\(^\s*\||\s*\)\S\+\s\+\S*$'
+    " Completion for templates.
+    let list = filter(s:get_available(), 'v:val =~# a:ArgLead')
+  elseif a:CmdLine[: a:CursorPos ] =~?
+        \'\m\%(^\s*\||\s*\)\S\+\s\+\S*\%(\s\+\S\+\)*\s\+\S*$'
+    " Completion for files/dirs.
+    let list = glob(a:ArgLead.'*', 1, 1)
+  endif
+  " Add trailing slash to directories.
+  call map(list, 'isdirectory(v:val) ? v:val."/" : v:val')
+  " Return non-empty items.
+  return filter(list, 'v:val !~ ''^\s*$''')
+endfunction
+
 " Commands: {{{1
-command! -nargs=+ -bar -bang Area41 call s:handle_args(<bang>0, <f-args>)
+command! -nargs=+ -bar -bang -complete=customlist,<SID>command_complete Area41 call s:handle_args(<bang>0, <f-args>)
 
 " Teardown:{{{1
 "reset &cpo back to users setting
