@@ -70,7 +70,7 @@ endfunction
 
 " Return a valid extension depending on the template.
 function! s:get_extension(template)
-  if index(['doc', 'help', 'documentation'], a:template) > 0
+  if index(['doc', 'help', 'documentation'], a:template) > -1
     return '.txt'
   else
     return '.vim'
@@ -104,6 +104,7 @@ function! s:handle_args(bang, kind, ...)
     endif
     exec 'edit ' . file
     if !expand('%') == file
+      echoe 'Area41: The template could not be loaded.'
       return 0
     endif
   endif
@@ -118,7 +119,7 @@ function! s:load_template(template)
   let template_dir = existed ? g:template_dir : ''
   for dir in [s:crypt, s:get_user_crypt()]
     let g:template_dir = dir
-    exec 'Template ' . a:template . '.vim'
+    exec 'Template ' . a:template . s:get_extension(a:template)
     if linescount < line('$')
       let done = 1
       break
@@ -148,7 +149,8 @@ function! s:command_complete(ArgLead, CmdLine, CursorPos)
 endfunction
 
 " Commands: {{{1
-command! -nargs=+ -bar -bang -complete=customlist,<SID>command_complete Area41 call s:handle_args(<bang>0, <f-args>)
+command! -nargs=+ -bar -bang -complete=customlist,<SID>command_complete
+      \ Area41 call s:handle_args(<bang>0, <f-args>)
 
 " Teardown:{{{1
 "reset &cpo back to users setting
