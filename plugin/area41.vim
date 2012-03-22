@@ -62,6 +62,10 @@ function! s:get_crypts()
 endfunction
 
 function! s:handle_args(bang, kind, ...)
+  if !exists(':Template')
+    echoe 'The Template plugin is not instealled!'
+    return 0
+  endif
   if !s:is_available(a:kind)
     " TODO: An error would be nice here.
     echoe 'No such template!'
