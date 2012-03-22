@@ -94,9 +94,9 @@ function! s:handle_args(bang, kind, ...)
       return 0
     endif
     exec 'edit ' . file
-  endif
-  if !expand('%') == file
-    return 0
+    if !expand('%') == file
+      return 0
+    endif
   endif
   return s:load_template(a:kind)
 endfunction
@@ -107,7 +107,7 @@ function! s:load_template(template)
   let done = 0
   let existed = exists('g:template_dir')
   let template_dir = existed ? g:template_dir : ''
-  for dir in s:get_crypts()
+  for dir in [s:crypt, s:get_user_crypt()]
     let g:template_dir = dir
     exec 'Template ' . a:template . '.vim'
     if linescount < line('$')
