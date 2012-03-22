@@ -1,0 +1,93 @@
+*%FFILE%*	For Vim version 7.3	Last change: %DATE%
+
+
+			VIM REFERENCE MANUAL	by %USER%
+
+
+Help on using %FILE%                                                    *%FILE%*
+
+1. Introduction				|%FILE%-intro|
+2. Configuration			|%FILE%-configuration|
+3. Other					|%FILE%-other|
+
+==============================================================================
+ 1. INTRODUCTION                                                  *%FILE%-intro*
+
+NOTE: The all caps header needs a leading space and a tag at the end to be
+highlighted.
+
+Note that tags are usually right aligned.
+
+This is a nice introduction into the magic this wonderfull plugin provides.
+Links are defined by surrounding some text with bars "|", like |help-writing|.
+Use stars "*" to define tags, like this: *awesome-topic*
+
+NOTE: With conceal enabled the link/tag markers are hidden.
+
+==============================================================================
+ 2. CONFIGURATION                                         *%FILE%-configuration*
+
+It's good to follow Vim's convention on help tags as described in
+|help-context|. Something like this: *:ExCommand* , *'option'* ,
+*i_CTRL-X_CTRL-K* , etc.
+
+Note: Variables used to modify a plugin behavior are usually surrounded by
+quotes as if they were options.
+
+|'%FILE%-option1'|		Does some magic.
+|'%FILE%-option2'|		Does some dark magic.
+
+
+------------------------------------------------------------------------------
+                                                              *'%FILE%-option1'*
+Values: numeric                                                              ~
+Default: 1                                                                   ~
+
+NOTE: Add a trailing tilde "~" at the end of the line to get that
+highlighting. With conceal enabled the tilde will be hidden.
+
+Detailed description of what this variable modifies.
+
+------------------------------------------------------------------------------
+                                                              *'%FILE%-option2'*
+Values: string                                                               ~
+Default: 'abc'                                                               ~
+
+Detailed description of what this variable modifies.
+
+==============================================================================
+ 3. OTHER                                                         *%FILE%-other*
+
+A block of indented text can be highlighted by ending the previous line with a
+greater than ">" character. The highlighting will end on a line with a less
+than character "<" as the first non-blank or any unindented line.
+
+Something like this: >
+
+	if a > b
+      echo a
+    else
+      echo b
+    endif
+<
+Note that the less than and greater than chars will hidden when conceal is
+enabled.
+
+The tilde can be used to highlight column headers:
+
+		Header1   Header2   Header3 ~
+		---------------------------
+        item      entry1    entry2
+
+This items will use the corresponding highlighting group:
+
+	*String	needs an actual tab before and after the '*String'
+	*Todo	needs an actual tab before and after the '*Todo'
+	*Error	needs an actual tab before and after the '*Error'
+
+There are some special cases that will be also highlighted:
+- <Anything>	<= Anything enclosed in <>.
+- {Another}		<= Anything enclosed in {}
+- CTRL-X		<= CTRL- followed by any char.
+
+ vim:tw=78:ts=8:ft=help:norl:
