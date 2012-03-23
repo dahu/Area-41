@@ -92,6 +92,7 @@ function! s:handle_args(bang, kind, ...)
     echoe 'Area41: No such template.'
     return 0
   endif
+  let remove_empty = 0
   if a:0 && !empty(a:1)
     let file = a:1 . (a:1 =~ '\.\S\+$' ? '' : s:get_extension(a:kind))
     if !a:bang
@@ -103,16 +104,17 @@ function! s:handle_args(bang, kind, ...)
       return 0
     endif
     exec 'edit ' . file
+    let remove_empty = 1
     if !expand('%') == file
       echoe 'Area41: The template could not be loaded.'
       return 0
     endif
   endif
-  return s:load_template(a:kind)
+  return s:load_template(a:kind, remove_empty)
 endfunction
 
 " Read the given template into the current buffer.
-function! s:load_template(template)
+function! s:load_template(template, remove_empty)
   let linescount = line('$')
   let done = 0
   let existed = exists('g:template_dir')
@@ -125,6 +127,13 @@ function! s:load_template(template)
       break
     endif
   endfor
+  if a:remove_empty && empty(getline('$'))
+    let save_fold = &foldenable
+    setl nofoldenable
+    $d_
+    normal! ``
+    let &foldenable = save_fold
+  endif
   if existed
     let g:template_dir = template_dir
   else
