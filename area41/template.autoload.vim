@@ -1,4 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim library for short description
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
@@ -12,7 +11,7 @@
 "
 " :helptags ~/.vim/doc
 " :help %FILE%
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1

@@ -1,4 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim syntax plugin for filetype name.
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
@@ -12,7 +11,7 @@
 "
 " :helptags ~/.vim/doc
 " :help %FILE%
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:%FILE%_version = '0.1'
 
 " Quit when a (custom) syntax file was already loaded
