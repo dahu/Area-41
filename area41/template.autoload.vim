@@ -13,7 +13,7 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+let g:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -22,6 +22,7 @@ set cpo&vim
 
 " load guard
 " uncomment after plugin development
+" Remove the conditions you do not need, they are there just as an example.
 "if exists("g:loaded_lib_%FILE%")
 "      \ || v:version < 700
 "      \ || v:version == 703 && !has('patch338')

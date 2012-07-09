@@ -13,7 +13,7 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+let g:%FILE%_version = '0.1'
 
 " First remove all existing highlighting.
 hi clear

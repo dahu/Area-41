@@ -13,7 +13,7 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+let g:%FILE%_version = '0.1'
 
 " Quit when menu translations have already been done.
 if exists("did_menu_trans")

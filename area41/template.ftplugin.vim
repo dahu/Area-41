@@ -13,7 +13,7 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+let g:%FILE%_version = '0.1'
 
 " Only do this when not done yet for this buffer
 if exists("b:did_ftplugin")

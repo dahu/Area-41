@@ -13,7 +13,7 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+let g:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -60,7 +60,7 @@ function! s:MyScriptLocalFunction()
 endfunction
 
 " Public Interface:
-function! MyPublicFunction()
+function! %FILE%MyPublicFunction()
   echom "change MyPublicFunction"
 endfunction
 

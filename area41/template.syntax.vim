@@ -13,7 +13,7 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+let g:%FILE%_version = '0.1'
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -24,11 +24,11 @@ endif
 let s:save_cpo = &cpo
 set cpo&vim
 
-syn keyword	FileTypeNameTodo	TODO FIXME XXX
+syn keyword	%FILE%Todo	TODO FIXME XXX
 
 " Define the default highlighting.
 " Only used when an item doesn't have highlighting yet
-hi def link FileTypeNameTodo	Todo
+hi def link %FILE%Todo	Todo
 
 let b:current_syntax = "%FILE%"
 

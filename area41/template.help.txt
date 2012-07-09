@@ -8,7 +8,7 @@ Help on using %FILE%                                                    *%FILE%*
 
 1. Introduction				|%FILE%-intro|
 2. Configuration			|%FILE%-configuration|
-3. Other					|%FILE%-other|
+3. Other				|%FILE%-other|
 
 ==============================================================================
  1. INTRODUCTION                                                  *%FILE%-intro*
@@ -79,7 +79,9 @@ The tilde can be used to highlight column headers:
 		---------------------------
         item      entry1    entry2
 
-This items will use the corresponding highlighting group:
+Lines starting with a tab that is followed by an asterisk that is also
+followed by the name of a highlight group will be highlighted using the colors
+for that highlighting group. e.g.:
 
 	*String	needs an actual tab before and after the '*String'
 	*Todo	needs an actual tab before and after the '*Todo'
@@ -87,7 +89,7 @@ This items will use the corresponding highlighting group:
 
 There are some special cases that will be also highlighted:
 - <Anything>	<= Anything enclosed in <>.
-- {Another}		<= Anything enclosed in {}
-- CTRL-X		<= CTRL- followed by any char.
+- {Another}	<= Anything enclosed in {}
+- CTRL-X	<= CTRL- followed by any char.
 
  vim:tw=78:ts=8:ft=help:norl:
