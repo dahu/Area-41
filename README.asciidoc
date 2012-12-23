@@ -2,3 +2,5 @@ Area 41
 -------
 
 __Vim Plugin Skeletons__
+
+Depends on https://github.com/aperezdc/vim-template[vim-template]
