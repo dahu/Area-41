@@ -1,4 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim global plugin provides templates for Vim plugins.
 " Maintainers:	Israel Chauca F <israelchauca@gmail.com>
 "		Barry Arthur
@@ -18,7 +17,7 @@
 " :help area41
 "
 " (1) https://github.com/aperezdc/vim-template
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let s:area41_version = '0.1'
 
 " Vimscript Setup: {{{1

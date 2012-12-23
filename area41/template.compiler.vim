@@ -1,4 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim compiler plugin for compiler name.
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
@@ -12,7 +11,7 @@
 "
 " :helptags ~/.vim/doc
 " :help %FILE%
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if exists("current_compiler")
   finish
 endif

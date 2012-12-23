@@ -1,4 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim keymap plugin for language name.
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
@@ -12,8 +11,8 @@
 "
 " :helptags ~/.vim/doc
 " :help %FILE%
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+
+let g:%FILE%_version = '0.1'
 
 " Use this short name in the status line.
 let b:keymap_name = "%FILE%"

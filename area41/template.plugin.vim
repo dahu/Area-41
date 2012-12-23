@@ -1,4 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim global plugin for short description
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
@@ -12,8 +11,8 @@
 "
 " :helptags ~/.vim/doc
 " :help %FILE%
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:%FILE%_version = '0.1'
+
+let g:%FILE%_version = '0.1'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -21,7 +20,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " load guard
-" uncomment after plugin development
+" uncomment after plugin development.
+" XXX The conditions are only as examples of how to use them. Change them as
+" needed. XXX
 "if exists("g:loaded_%FILE%")
 "      \ || v:version < 700
 "      \ || v:version == 703 && !has('patch338')
@@ -32,8 +33,8 @@ set cpo&vim
 "let g:loaded_%FILE% = 1
 
 " Options: {{{1
-if !exists('g:somevar')
-  let g:somevar = 0
+if !exists('g:%FILE%_some_plugin_option')
+  let g:%FILE%_some_plugin_option = 0
 endif
 
 " Private Functions: {{{1
