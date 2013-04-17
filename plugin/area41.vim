@@ -28,12 +28,16 @@ set cpo&vim
 " load guard
 " uncomment after plugin development
 "if exists("g:loaded_area41")
-"      \ || v:version < 700
-"      \ || v:version == 703 && !has('patch338')
 "      \ || &compatible
 "  let &cpo = s:save_cpo
 "  finish
 "endif
+if v:version == 703 && !has('patch465')
+  echohl ErrorMsg
+  echom 'Area41: A Vim with version 7.3 and patch 465 is required. Area41 is disabled.'
+  echohl NONE
+  finish
+endif
 "let g:loaded_area41 = 1
 
 " Options: {{{1
