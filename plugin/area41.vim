@@ -32,12 +32,6 @@ set cpo&vim
 "  let &cpo = s:save_cpo
 "  finish
 "endif
-if v:version == 703 && !has('patch465')
-  echohl ErrorMsg
-  echom 'Area41: A Vim with version 7.3 and patch 465 is required. Area41 is disabled.'
-  echohl NONE
-  finish
-endif
 "let g:loaded_area41 = 1
 
 " Options: {{{1
@@ -48,6 +42,19 @@ endif
 let s:crypt = expand('<sfile>:p:h:h') . '/area41'
 
 " Private Functions: {{{1
+
+if v:version < 703
+      \ || v:version == 703 && !has('patch465')
+  " Use the old two-arguments glob()
+  function! s:glob2list(expr)
+    return split(glob(a:expr, 1), "\n")
+  endfunction
+else
+  " Use the new three-arguments glob()
+  function! s:glob2list(expr)
+    return glob(a:expr, 1, 1)
+  endfunction
+endif
 
 " Check if the given template is available.
 function! s:is_available(template)
@@ -62,10 +69,10 @@ endfunction
 " Get list of available templates.
 function! s:get_available()
   let user_crypt = s:get_user_crypt()
-  let templates = map(split(glob(s:crypt . '/*', 1), "\n"),
+  let templates = map(s:glob2list(s:crypt . '/*'),
         \ 'fnamemodify(v:val, ":t:r:e")')
   if !empty(user_crypt)
-    let templates += map(split(glob(user_crypt . '/*', 1), "\n"),
+    let templates += map(s:glob2list(user_crypt . '/*'),
           \ 'fnamemodify(v:val, ":t:r:e")')
   endif
   return filter(templates, 'count(templates, v:val) == 1')
@@ -152,7 +159,7 @@ function! s:command_complete(ArgLead, CmdLine, CursorPos)
   elseif a:CmdLine[: a:CursorPos ] =~?
         \'\m\%(^\s*\||\s*\)\S\+\s\+\S*\%(\s\+\S\+\)*\s\+\S*$'
     " Completion for files/dirs.
-    let list = split(glob(a:ArgLead.'*', 1), "\n")
+    let list = s:glob2list(a:ArgLead.'*')
   endif
   " Add trailing slash to directories.
   call map(list, 'isdirectory(v:val) ? v:val."/" : v:val')
