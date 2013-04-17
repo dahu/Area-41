@@ -58,10 +58,10 @@ endfunction
 " Get list of available templates.
 function! s:get_available()
   let user_crypt = s:get_user_crypt()
-  let templates = map(glob(s:crypt . '/*', 0, 1),
+  let templates = map(split(glob(s:crypt . '/*', 1), "\n"),
         \ 'fnamemodify(v:val, ":t:r:e")')
   if !empty(user_crypt)
-    let templates += map(glob(user_crypt . '/*', 0, 1),
+    let templates += map(split(glob(user_crypt . '/*', 1), "\n"),
           \ 'fnamemodify(v:val, ":t:r:e")')
   endif
   return filter(templates, 'count(templates, v:val) == 1')
