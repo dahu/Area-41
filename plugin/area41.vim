@@ -148,7 +148,7 @@ function! s:command_complete(ArgLead, CmdLine, CursorPos)
   elseif a:CmdLine[: a:CursorPos ] =~?
         \'\m\%(^\s*\||\s*\)\S\+\s\+\S*\%(\s\+\S\+\)*\s\+\S*$'
     " Completion for files/dirs.
-    let list = glob(a:ArgLead.'*', 1, 1)
+    let list = split(glob(a:ArgLead.'*', 1), "\n")
   endif
   " Add trailing slash to directories.
   call map(list, 'isdirectory(v:val) ? v:val."/" : v:val')
