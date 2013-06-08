@@ -1,4 +1,4 @@
-*%FFILE%*	For Vim version 7.3	Last change: %DATE%
+*%FFILE%*	Plugin that does something
 
 
 			VIM REFERENCE MANUAL	by %USER%
