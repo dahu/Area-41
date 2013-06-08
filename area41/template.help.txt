@@ -1,4 +1,4 @@
-*%FFILE%*	For Vim version 7.3	Last change: %DATE%
+*%FFILE%*	Short description, better if less than 78 characters.
 
 
 			VIM REFERENCE MANUAL	by %USER%
