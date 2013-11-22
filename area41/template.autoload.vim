@@ -29,6 +29,17 @@ set cpo&vim
 "endif
 "let g:loaded_lib_%FILE% = 1
 
+" Vim Script Information Function: {{{1
+" Use this function to return information about your script.
+function! %FILE%#info()
+  let info = {}
+  let info.name = '%FILE%'
+  let info.version = 1.0
+  let info.description = 'Short description.'
+  let info.dependencies = [{'name': 'plugin1', 'version': 1.0}]
+  return info
+endfunction
+
 " Private Functions: {{{1
 function! s:MyScriptLocalFunction()
   echom "change MyScriptLocalFunction"
