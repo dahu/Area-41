@@ -1,4 +1,5 @@
-" Vim indent plugin for filetype name.
+" Vim indent plugin.
+" Language:	%FILE%
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.

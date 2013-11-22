@@ -1,4 +1,5 @@
-" Vim syntax plugin for filetype name.
+" Vim syntax plugin.
+" Language:	%FILE%
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
