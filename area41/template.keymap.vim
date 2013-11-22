@@ -1,4 +1,4 @@
-" Vim keymap plugin for language name.
+" Vim keymap plugin for %FILE%.
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.

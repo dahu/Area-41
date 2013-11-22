@@ -1,4 +1,4 @@
-" Vim menu translation plugin for language name.
+" Vim menu translation plugin for %FILE%.
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Description:	Long description.
