@@ -12,8 +12,6 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")
    finish

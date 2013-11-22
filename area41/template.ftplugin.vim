@@ -12,8 +12,6 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 " Only do this when not done yet for this buffer
 if exists("b:did_ftplugin")
   finish

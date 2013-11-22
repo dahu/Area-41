@@ -12,8 +12,6 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
   finish

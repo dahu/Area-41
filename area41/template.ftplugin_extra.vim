@@ -12,8 +12,6 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
 let s:save_cpo = &cpo

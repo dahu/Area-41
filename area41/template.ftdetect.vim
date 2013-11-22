@@ -12,6 +12,4 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 au BufRead,BufNewFile *.%FILE%	set filetype=%FILE%

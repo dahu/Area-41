@@ -12,8 +12,6 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 " First remove all existing highlighting.
 hi clear
 if exists("syntax_on")

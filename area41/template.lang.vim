@@ -12,8 +12,6 @@
 " :helptags ~/.vim/doc
 " :help %FILE%
 
-let g:%FILE%_version = '0.1'
-
 " Quit when menu translations have already been done.
 if exists("did_menu_trans")
   finish
