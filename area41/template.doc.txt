@@ -92,4 +92,5 @@ There are some special cases that will be also highlighted:
 - {Another}	<= Anything enclosed in {}
 - CTRL-X	<= CTRL- followed by any char.
 
+Template From: https://github.com/dahu/Area-41/
  vim:tw=78:ts=8:ft=help:norl:

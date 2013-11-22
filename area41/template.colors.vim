@@ -22,4 +22,5 @@ let colors_name = "%FILE%"
 
 hi Normal ctermbg=DarkGrey ctermfg=White guifg=White guibg=grey20
 
+" Template From: https://github.com/dahu/Area-41/
 " vim: set sw=2 sts=2 et fdm=marker:

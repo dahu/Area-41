@@ -20,3 +20,5 @@ let did_menu_trans = 1
 
 " Help menu
 menutrans &Help			&HelpTranslation
+
+" Template From: https://github.com/dahu/Area-41/

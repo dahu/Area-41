@@ -17,3 +17,5 @@ let b:keymap_name = "%FILE%"
 
 loadkeymap
 a	<char-0x###>	" Comment
+
+" Template From: https://github.com/dahu/Area-41/

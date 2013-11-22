@@ -14,3 +14,5 @@
 " :help %FILE%
 
 au BufRead,BufNewFile *.%FILE%	set filetype=%FILE%
+
+" Template From: https://github.com/dahu/Area-41/
