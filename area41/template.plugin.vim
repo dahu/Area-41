@@ -49,7 +49,7 @@ endfunction
 nnoremap <Plug>%FILE%1 :call <SID>MyScriptLocalFunction()<CR>
 nnoremap <Plug>%FILE%2 :call MyPublicFunction()<CR>
 
-if !hasmapto('<Plug>%FILE%e1')
+if !hasmapto('<Plug>%FILE%1')
   nmap <unique><silent> <Leader>p1 <Plug>%FILE%1
 endif
 
