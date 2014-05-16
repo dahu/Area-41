@@ -129,6 +129,10 @@ function! s:load_template(template, remove_empty)
   let done = 0
   let existed = exists('g:template_dir')
   let template_dir = existed ? g:template_dir : ''
+  if exists('g:templates_name_prefix')
+    let old_templates_name_prefix = g:templates_name_prefix
+  endif
+  let g:templates_name_prefix = 'area41.'
   for dir in [s:crypt, s:get_user_crypt()]
     let g:template_dir = dir
     exec 'Template ' . a:template . s:get_extension(a:template)
@@ -137,11 +141,16 @@ function! s:load_template(template, remove_empty)
       break
     endif
   endfor
+  if exists('old_templates_name_prefix')
+    let g:templates_name_prefix = old_templates_name_prefix
+  else
+    unlet g:templates_name_prefix
+  endif
   if a:remove_empty && empty(getline('$'))
     let save_fold = &foldenable
     setl nofoldenable
     $d_
-    normal! ``
+    silent! normal! ``
     let &foldenable = save_fold
   endif
   if existed
