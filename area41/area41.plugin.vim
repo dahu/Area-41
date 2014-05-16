@@ -49,20 +49,20 @@ endfunction
 nnoremap <Plug>%FILE%1 :call <SID>MyScriptLocalFunction()<CR>
 nnoremap <Plug>%FILE%2 :call MyPublicFunction()<CR>
 
-if !hasmapto('<Plug>PublicPlugName1')
-  nmap <unique><silent> <leader>p1 <Plug>%FILE%1
+if !hasmapto('<Plug>%FILE%1')
+  nmap <unique><silent> <Leader>p1 <Plug>%FILE%1
 endif
 
-if !hasmapto('<Plug>PublicPlugName2')
-  nmap <unique><silent> <leader>p2 <Plug>%FILE%2
+if !hasmapto('<Plug>%FILE%2')
+  nmap <unique><silent> <Leader>p2 <Plug>%FILE%2
 endif
 
 " Commands: {{{1
 command! -nargs=0 -bar MyCommand1 call <SID>MyScriptLocalFunction()
 command! -nargs=0 -bar MyCommand2 call MyPublicFunction()
 
-" Teardown:{{{1
-"reset &cpo back to users setting
+" Teardown: {{{1
+" reset &cpo back to users setting
 let &cpo = s:save_cpo
 
 " Template From: https://github.com/dahu/Area-41/
