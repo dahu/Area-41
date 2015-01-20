@@ -2,7 +2,6 @@
 " Maintainer:	%USER% <%MAIL%>
 " Version:	0.1
 " Compiler:	Long description.
-" Last Change:	%DATE%
 " License:	Vim License (see :help license)
 " Location:	compiler/%FFILE%
 " Website:	https://github.com/%HERE%/%FILE%
