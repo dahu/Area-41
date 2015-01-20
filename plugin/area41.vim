@@ -123,29 +123,39 @@ function! s:handle_args(bang, kind, ...)
   return s:load_template(a:kind, remove_empty)
 endfunction
 
+function! s:globals()
+  return {
+        \ 'stack': [],
+        \ 'replace': function('s:replace_global'),
+        \ 'restore': function('s:restore_globals')}
+endfunction
+
+function! s:replace_global(name, new_value) dict
+  call add(self.stack, {
+        \ 'name': a:name,
+        \ 'existed': has_key(g:, a:name),
+        \ 'orig_value': get(g:, a:name, 0)})
+  let g:[a:name] = a:new_value
+endfunction
+
+function! s:restore_globals() dict
+  for global in self.stack
+    if global.existed
+      let g:[global.name] = global.orig_value
+    else
+      unlet g:[global.name]
+    endif
+  endfor
+  let self.stack = []
+endfunction
+
 " Read the given template into the current buffer.
 function! s:load_template(template, remove_empty)
   let linescount = line('$')
-  let done = 0
-  let existed = exists('g:template_dir')
-  let template_dir = existed ? g:template_dir : ''
-  if exists('g:templates_name_prefix')
-    let old_templates_name_prefix = g:templates_name_prefix
-  endif
-  let g:templates_name_prefix = 'area41.'
-  for dir in [s:crypt, s:get_user_crypt()]
-    let g:template_dir = dir
-    exec 'Template ' . a:template . s:get_extension(a:template)
-    if linescount < line('$')
-      let done = 1
-      break
-    endif
-  endfor
-  if exists('old_templates_name_prefix')
-    let g:templates_name_prefix = old_templates_name_prefix
-  else
-    unlet g:templates_name_prefix
-  endif
+  let globals = s:globals()
+  call globals.replace('templates_directory', [s:crypt, s:get_user_crypt()])
+  call globals.replace('templates_global_name_prefix', 'area41.')
+  exec 'Template ' . a:template . s:get_extension(a:template)
   if a:remove_empty && empty(getline('$'))
     let save_fold = &foldenable
     setl nofoldenable
@@ -153,12 +163,8 @@ function! s:load_template(template, remove_empty)
     silent! normal! ``
     let &foldenable = save_fold
   endif
-  if existed
-    let g:template_dir = template_dir
-  else
-    unlet g:template_dir
-  endif
-  return done
+  call globals.restore()
+  return line('$') > linescount
 endfunction
 
 function! s:command_complete(ArgLead, CmdLine, CursorPos)
