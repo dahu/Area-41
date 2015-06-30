@@ -4,3 +4,8 @@ Area 41
 __Vim Plugin Skeletons__
 
 Depends on https://github.com/aperezdc/vim-template[vim-template]
+
+NOTE: To disable vim-template's annoying auto-templates with empty
+buffers, add this line to your ~/.vimrc:
+
+  let g:templates_no_autocmd = 1
