@@ -1,0 +1,46 @@
+*area41.txt*	Provides templates for Vim plugins.
+
+
+			VIM REFERENCE MANUAL	by Barry Arthur
+
+
+Help on using area41                                                    *area41*
+
+1. Introduction				|area41-intro|
+
+==============================================================================
+ 1. INTRODUCTION                                                  *area41-intro*
+
+Area41 provides |usr_41| compliant templates for creating Vim plugins.
+
+Usage:~
+
+To create a plugin file called `myplugin`: >
+  :Area41 plugin plugin/myplugin.vim
+<
+
+The complete set of types you can create with Area41 are:
+
+* autoload
+* colors
+* compiler
+* doc / help
+* ftdetect
+* ftplugin
+* indent
+* keymap
+* lang
+* plugin
+* syntax
+
+Vim-Template:~
+
+Area41 depends on https://github.com/aperezdc/vim-template
+
+NOTE: To disable vim-template's annoying auto-templates with empty
+buffers, add this line to your $MYVIMRC : >
+  let g:templates_no_autocmd = 1
+<
+
+Template From: https://github.com/dahu/Area-41/
+ vim:tw=78:ts=8:ft=help:norl:

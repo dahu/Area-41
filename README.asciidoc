@@ -9,3 +9,23 @@ NOTE: To disable vim-template's annoying auto-templates with empty
 buffers, add this line to your ~/.vimrc:
 
   let g:templates_no_autocmd = 1
+
+=== Usage
+
+To create a plugin file called `myplugin`:
+
+  :Area41 plugin plugin/myplugin.vim
+
+The complete set of types you can create with Area41 are:
+
+* autoload
+* colors
+* compiler
+* doc / help
+* ftdetect
+* ftplugin
+* indent
+* keymap
+* lang
+* plugin
+* syntax
